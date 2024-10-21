@@ -1,6 +1,6 @@
-import 'package:bite_plan/data/dummy_data.dart';
-import 'package:bite_plan/screens/meals.dart';
+import 'package:bite_plan/screens/tabs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final theme = ThemeData(
@@ -13,7 +13,7 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(const ProviderScope(child: App()));
 }
 
 class App extends StatelessWidget {
@@ -22,9 +22,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme,
-      // home: CategoriesScreen(),
-      home: MealsScreen(title: "Some category...", meals: dummyMeals),
+      home: const TabsScreen(),
     );
   }
 }
